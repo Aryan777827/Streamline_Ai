@@ -10,23 +10,17 @@
 
 > Target Companies: Google, NVIDIA, Meta
 
+## 🌟 Features
+
+- ✅ **Video Frame Extraction** - Efficient frame sampling from video files
+- ✅ **AI Object Detection** - YOLOv8 integration for real-time object recognition
+- ✅ **Scene Detection** - Automatic scene change detection and analysis (Week 2)
+- ✅ **Key Frame Extraction** - Smart extraction of representative frames from each scene (Week 2)
+- ✅ **Video Summarization** - Comprehensive video analysis with scene-level insights (Week 2)
+- 🚧 **Audio Transcription** (Coming in Week 3)
+- 🚧 **Sentiment Analysis** (Coming in Week 4)
 
 
-\## 🌟 Features (Week 1 Complete)
-
-
-
-\- ✅ \*\*Video Frame Extraction\*\* - Efficient frame sampling from video files
-
-\- ✅ \*\*AI Object Detection\*\* - YOLOv8 integration for real-time object recognition
-
-\- ✅ \*\*Automated Analysis\*\* - Process videos and generate insights automatically
-
-\- 🚧 \*\*Scene Detection\*\* (Coming in Week 2)
-
-\- 🚧 \*\*Audio Transcription\*\* (Coming in Week 3)
-
-\- 🚧 \*\*Sentiment Analysis\*\* (Coming in Week 4)
 
 
 
