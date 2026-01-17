@@ -7,7 +7,10 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 class VideoProcessor:
+    """Handles video loading and frame extraction."""
+    
     def __init__(self, video_path: str):
         self.video_path = Path(video_path)
         if not self.video_path.exists():
@@ -47,6 +50,15 @@ class VideoProcessor:
             'width': int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)),
             'height': int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         }
+    
+    def get_frame_at_timestamp(self, timestamp: float) -> np.ndarray:
+        """Extract frame at specific timestamp."""
+        frame_number = int(timestamp * self.fps)
+        self.cap.set(cv2.CAP_PROP_POS_FRAMES, frame_number)
+        ret, frame = self.cap.read()
+        if not ret:
+            raise ValueError(f"Cannot read frame at timestamp {timestamp}s")
+        return cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     
     def __del__(self):
         if hasattr(self, 'cap'):
