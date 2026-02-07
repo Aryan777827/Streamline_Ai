@@ -2,7 +2,7 @@
 
 
 
-\*\*AI-Powered Video Analysis Platform\*\*
+\*\*AI-Powered Video Analysis Platform.\*\*
 
 
 
