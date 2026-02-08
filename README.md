@@ -225,6 +225,15 @@ Building AI/ML skills for 2028 tech roles
 \[GitHub](https://github.com/Aryan777827)
 
 
+\## 👤 CO-Author
+
+\*\*Bhumin\*\*
+
+Engineering Student | Innovating with AI, Blockchain & Open-Source Technologies
+
+\[Github](https://github.com/Bhumin-saini)
+
+
 
 ---
 
