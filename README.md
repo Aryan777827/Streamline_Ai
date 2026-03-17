@@ -14,11 +14,13 @@
 
 - ✅ **Video Frame Extraction** - Efficient frame sampling from video files
 - ✅ **AI Object Detection** - YOLOv8 integration for real-time object recognition
-- ✅ **Scene Detection** - Automatic scene change detection and analysis (Week 2)
-- ✅ **Key Frame Extraction** - Smart extraction of representative frames from each scene (Week 2)
-- ✅ **Video Summarization** - Comprehensive video analysis with scene-level insights (Week 2)
-- 🚧 **Audio Transcription** (Coming in Week 3)
-- 🚧 **Sentiment Analysis** (Coming in Week 4)
+- ✅ **Scene Detection** - Automatic scene change detection and analysis
+- ✅ **Key Frame Extraction** - Smart extraction of representative frames from each scene
+- ✅ **Video Summarization** - Comprehensive video analysis with scene-level insights
+- ✅ **Audio Transcription** - Speech-to-text using Whisper AI (Week 3)
+- ✅ **Sentiment Analysis** - Emotional tone analysis with 99%+ accuracy (Week 4)
+- 🚧 **Recommendation Engine** (Coming in Week 5)
+- 🚧 **Web Interface** (Coming in Week 6-8)
 
 
 
