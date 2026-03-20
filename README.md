@@ -1,245 +1,67 @@
-﻿\# 🎬 StreamlineAI
+﻿# StreamlineAI — AI-Powered Video Analysis Platform
 
+A full-stack AI video intelligence platform built as a 2028 graduation portfolio project.
 
+## What it does
 
-\*\*AI-Powered Video Analysis Platform.\*\*
+Upload any video and StreamlineAI automatically runs a complete AI pipeline:
 
+- **Scene Detection** — finds every cut and scene change
+- **Object Detection** — tags every object using YOLOv8n (COCO-80 classes)
+- **Audio Transcription** — transcribes speech using OpenAI Whisper
+- **Sentiment Analysis** — analyses tone of the transcript
+- **Web Dashboard** — beautiful UI to explore all results
 
+## Tech Stack
 
-> Building advanced video processing capabilities for my 2028 graduation portfolio  
+- **Backend:** FastAPI + Uvicorn
+- **Computer Vision:** OpenCV, YOLOv8 (Ultralytics)
+- **Speech:** OpenAI Whisper
+- **Deep Learning:** PyTorch
+- **Frontend:** Vanilla HTML/CSS/JS
+- **Language:** Python 3.13
 
-> Target Companies: Google, NVIDIA, Meta
-
-## 🌟 Features
-
-- ✅ **Video Frame Extraction** - Efficient frame sampling
-- ✅ **AI Object Detection** - YOLOv8 real-time recognition
-- ✅ **Scene Detection** - Automatic scene change detection
-- ✅ **Key Frame Extraction** - Smart representative frame selection
-- ✅ **Video Summarization** - Scene-level insights
-- ✅ **Audio Transcription** - Whisper AI speech-to-text
-- ✅ **Sentiment Analysis** - 99%+ accuracy emotional tone analysis
-- ✅ **Recommendation Engine** - Content-based similarity matching (Week 5)
-- 🚧 **Web Interface & Deployment** (Weeks 6-8)
-
-
-
-
-
-\## 🚀 Quick Start
-
-
-
-\### Prerequisites
-
-\- Python 3.10+
-
-\- pip
-
-
-
-\### Installation
-
-```bash
-
-\# Clone repository
-
-git clone https://github.com/Aryan777827/Streamline\_Ai.git
-
-cd Streamline\_Ai
-
-
-
-\# Create virtual environment
-
+## Quick Start
+`ash
+git clone https://github.com/Aryan777827/Streamline_Ai.git
+cd Streamline_Ai
 python -m venv venv
-
-venv\\Scripts\\activate  # Windows
-
-\# source venv/bin/activate  # Mac/Linux
-
-
-
-\# Install dependencies
-
+venv\Scripts\activate
 pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+`
 
-```
+Open http://localhost:8000 in your browser.
 
-
-
-\### Usage
-
-```bash
-
-\# Add a test video to data/videos/sample\_video.mp4
-
-
-
-\# Test video processing
-
-python test\_video\_processing.py
-
-
-
-\# Test object detection
-
-python test\_object\_detection.py
-
-
-
-\# Results saved to data/outputs/
-
-```
-
-
-
-\## 📊 Sample Results
-
-
-
-The system successfully:
-
-\- Extracts frames from videos at configurable intervals
-
-\- Detects objects with 85%+ confidence using YOLOv8n
-
-\- Generates annotated output images with bounding boxes
-
-
-
-\## 🛠️ Tech Stack
-
-
-
-\- \*\*Computer Vision:\*\* OpenCV, YOLOv8
-
-\- \*\*Deep Learning:\*\* PyTorch, Ultralytics
-
-\- \*\*Data Processing:\*\* NumPy, Matplotlib
-
-\- \*\*Language:\*\* Python 3.13
-
-
-
-\## 📁 Project Structure
-
-```
-
+## Project Structure
+`
 streamlineai/
-
 ├── src/
-
-│   ├── models/          # ML models (object detection)
-
-│   ├── preprocessing/   # Video/audio processing
-
-│   ├── inference/       # Analysis pipeline
-
-│   └── utils/          # Helper functions
-
-├── tests/              # Unit tests
-
-├── data/               # Input/output data
-
-│   ├── videos/        # Input videos
-
-│   └── outputs/       # Generated results
-
-└── docs/              # Documentation
-
-```
-
-
-
-\## 🎯 Roadmap
-
-
-
-\### Week 2 (In Progress)
-
-\- \[ ] Scene change detection
-
-\- \[ ] Key frame extraction
-
-\- \[ ] Video summarization
-
-
-
-\### Week 3-4
-
-\- \[ ] Audio transcription (Whisper)
-
-\- \[ ] Sentiment analysis
-
-\- \[ ] Multi-modal analysis
-
-
-
-\### Week 5-8
-
-\- \[ ] Web interface deployment
-
-\- \[ ] Real user testing
-
-\- \[ ] Performance optimization
-
-\- \[ ] Production deployment
-
-
-
-\## 📈 Development Progress
-
-
-
-\- \*\*Week 1:\*\* Core video processing and object detection ✅
-
-\- \*\*Target Completion:\*\* Before 2028 graduation
-
-\- \*\*Purpose:\*\* Portfolio project for AI/ML roles at top tech companies
-
-
-
-\## 🤝 Contributing
-
-
-
-This is a personal learning project, but feedback and suggestions are welcome!
-
-
-
-\## 📝 License
-
-
-
-MIT License
-
-
-
-\## 👤 Author
-
-
-
-\*\*Aryan\*\*  
-
-Building AI/ML skills for 2028 tech roles  
-
-\[GitHub](https://github.com/Aryan777827)
-
-
-\## 👤 CO-Author
-
-\*\*Bhumin\*\*
-
-Engineering Student | Innovating with AI, Blockchain & Open-Source Technologies
-
-\[Github](https://github.com/Bhumin-saini)
-
-
-
----
-
-
-
-\*Built with passion for Google, NVIDIA, and Meta recruitment\* 🚀
-
+│   ├── preprocessing/    # VideoProcessor, SceneDetector, AudioProcessor
+│   ├── models/           # ObjectDetector (YOLOv8), SentimentAnalyzer
+│   └── inference/        # CompletePipeline — runs everything end to end
+├── main.py               # FastAPI backend (upload, status, results endpoints)
+├── index.html            # Frontend dashboard UI
+└── requirements.txt
+`
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /upload | Upload video, returns job_id |
+| GET | /status/{job_id} | Poll processing progress |
+| GET | /results/{job_id} | Get full JSON results |
+| GET | / | Frontend dashboard |
+
+## Progress
+
+- Week 1: Video frame extraction + YOLOv8 object detection
+- Week 2: Scene detection
+- Week 3: Audio transcription (Whisper)
+- Week 4: Sentiment analysis
+- Week 7: FastAPI backend + full frontend dashboard
+
+## Author
+
+Aryan — building AI/ML skills for 2028 tech roles at Google, NVIDIA, Meta
