@@ -13,7 +13,8 @@ class ObjectDetector:
         logger.info('Model loaded')
     
     def detect_objects(self, frame: np.ndarray, confidence_threshold: float = 0.5) -> List[Dict]:
-        results = self.model(frame, verbose=False)
+        frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)  
+    results = self.model(frame_bgr, verbose=False)   
         detections = []
         for result in results:
             boxes = result.boxes
