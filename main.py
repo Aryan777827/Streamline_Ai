@@ -31,7 +31,7 @@ class UploadResponse(BaseModel):
 
 def _run_real_pipeline(job_id, video_path):
     from src.inference.complete_pipeline import CompletePipeline
-    pipeline = CompletePipeline(enable_audio=False, enable_sentiment=False)
+    pipeline = CompletePipeline(enable_audio=True, enable_sentiment=True)
     results = pipeline.analyze_video(video_path)
     out = RESULTS_DIR / f"{job_id}_results.json"
     pipeline.save_results(results, str(out))
