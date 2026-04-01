@@ -1,4 +1,4 @@
-﻿import uuid, json, time, shutil, asyncio
+import uuid, json, time, shutil, asyncio
 from pathlib import Path
 from typing import Optional
 from fastapi import FastAPI, UploadFile, File, HTTPException, BackgroundTasks
@@ -40,10 +40,9 @@ def _run_real_pipeline(job_id, video_path):
 async def run_pipeline(job_id, video_path):
     try:
         jobs[job_id]["status"] = "processing"
-        for progress, stage in [(10,"Extracting frames"),(30,"Running scene detection"),(55,"Running YOLOv8 object detection"),(75,"Transcribing audio with Whisper"),(85,"Building results JSON")]:
-            jobs[job_id]["progress"] = progress
-            jobs[job_id]["stage"] = stage
-            await asyncio.sleep(0)
+        jobs[job_id]["progress"] = 10
+        jobs[job_id]["stage"] = "Starting pipeline..."
+        await asyncio.sleep(0)
         loop = asyncio.get_event_loop()
         result = await loop.run_in_executor(None, _run_real_pipeline, job_id, str(video_path))
         jobs[job_id]["result"] = result
@@ -51,10 +50,12 @@ async def run_pipeline(job_id, video_path):
         jobs[job_id]["progress"] = 100
         jobs[job_id]["stage"] = "Done"
     except Exception as e:
+        import traceback
         jobs[job_id]["status"] = "error"
         jobs[job_id]["error"] = str(e)
         jobs[job_id]["stage"] = "Failed"
-        import traceback; traceback.print_exc()
+        jobs[job_id]["traceback"] = traceback.format_exc()
+        traceback.print_exc()
 
 @app.get("/", response_class=HTMLResponse)
 def serve_ui():

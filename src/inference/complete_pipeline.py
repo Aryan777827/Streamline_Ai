@@ -99,7 +99,7 @@ class CompletePipeline:
                 else:
                     logger.info("Step 5/5: Skipping sentiment (no audio segments)")
             except Exception as e:
-                logger.warning(f"Audio analysis failed: {e}")
+                import traceback; logger.error(f"Audio analysis failed: {traceback.format_exc()}")
                 results['audio_analysis'] = None
         else:
             logger.info("Step 4-5/5: Skipping audio analysis (disabled)")
