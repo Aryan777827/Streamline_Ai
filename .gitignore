@@ -4,3 +4,11 @@ __pycache__/
 data/videos/*
 data/outputs/*
 *.mp4
+
+uploads/
+results/
+data/
+complete_pipeline_results.json
+fix*.py
+fix_path.py
+write_ui.py
