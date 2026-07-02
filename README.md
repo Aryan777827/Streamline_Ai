@@ -1,10 +1,10 @@
-﻿# StreamlineAI - AI-Powered Video Analysis Platform
+# StreamlineAI - AI-Powered Video Analysis Platform
 
-A full-stack AI video intelligence platform built as a 2028 graduation portfolio project.
+A full-stack AI video intelligence platform that runs a complete video analysis pipeline and displays results in a web dashboard.
 
 ## What it does
 
-Upload any video and StreamlineAI automatically runs a complete AI pipeline and displays results in a web dashboard.
+Upload any video and StreamlineAI automatically runs a complete AI pipeline — scene detection, object detection, audio transcription, and sentiment analysis — and displays the results in an interactive dashboard.
 
 ## Features
 
@@ -52,41 +52,43 @@ Upload any video and StreamlineAI automatically runs a complete AI pipeline and 
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Backend | FastAPI, Uvicorn |
-| Computer Vision | OpenCV, YOLOv8 (Ultralytics) |
-| Speech | OpenAI Whisper |
-| Deep Learning | PyTorch |
-| NLP | Transformers (HuggingFace) |
-| Frontend | HTML, CSS, JavaScript |
-| Language | Python 3.13 |
+| Layer           | Technology                   |
+| --------------- | ----------------------------- |
+| Backend         | FastAPI, Uvicorn              |
+| Computer Vision | OpenCV, YOLOv8 (Ultralytics)  |
+| Speech          | OpenAI Whisper                |
+| Deep Learning   | PyTorch                       |
+| NLP             | Transformers (HuggingFace)    |
+| Frontend        | HTML, CSS, JavaScript         |
+| Language        | Python 3.13                   |
 
 ## Quick Start
-`ash
+
+```bash
 git clone https://github.com/Aryan777827/Streamline_Ai.git
 cd Streamline_Ai
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
-`
+```
 
 Open http://localhost:8000 in your browser.
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | / | Frontend dashboard |
-| POST | /upload | Upload video, returns job_id |
-| GET | /status/{job_id} | Poll processing progress (0-100%) |
-| GET | /results/{job_id} | Get full JSON results |
-| GET | /health | API health check |
-| GET | /jobs | List all processed jobs |
+| Method | Endpoint            | Description                        |
+| ------ | -------------------- | ----------------------------------- |
+| GET    | /                     | Frontend dashboard                  |
+| POST   | /upload               | Upload video, returns job_id        |
+| GET    | /status/{job_id}      | Poll processing progress (0-100%)   |
+| GET    | /results/{job_id}     | Get full JSON results               |
+| GET    | /health               | API health check                    |
+| GET    | /jobs                 | List all processed jobs             |
 
 ## Project Structure
-`
+
+```
 streamlineai/
 ├── src/
 │   ├── preprocessing/
@@ -100,10 +102,15 @@ streamlineai/
 │       ├── complete_pipeline.py   # End-to-end orchestration
 │       ├── video_analyzer.py      # Video analysis utilities
 │       └── recommendation_engine.py # Content recommendations
+├── tests/                         # Test suite covering each pipeline stage
 ├── main.py                        # FastAPI backend
 ├── index.html                     # Frontend dashboard
 └── requirements.txt
-`
+```
+
+## Testing
+
+The project includes a dedicated test suite covering audio transcription, object detection, sentiment analysis, scene detection, video processing, and full pipeline integration.
 
 ## Development Progress
 
@@ -117,6 +124,5 @@ streamlineai/
 
 ## Author
 
-Aryan - building AI/ML skills for 2028 tech roles at Google, NVIDIA, Meta
-
+Aryan Sharma — Computer Science student, JECRC University
 https://github.com/Aryan777827
